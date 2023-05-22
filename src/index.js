@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 const app = express()
-const PORT = 8000
+const port = process.env.PORT || 8000
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -37,6 +37,6 @@ app.post('/ask', async (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`App listening at http://localhost:${PORT}/ask`)
+app.listen(port, () => {
+  console.log(`App listening at port ${port}`)
 })
